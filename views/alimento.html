@@ -1,0 +1,16 @@
+<h3>{{alimento.descricao}}</h3>
+<table>
+  <tbody>
+    <tr class="item" data-ng-repeat="medida in alimento.medidas">
+      <td>
+        <a ng-click="medida.showMedicoes = !medida.showMedicoes">{{medida.descricao}} <i class="material-icons">keyboard_arrow_down</i></a>
+        
+        <ul class="collection" ng-show="medida.showMedicoes">
+          <li class="collection-item" ng-repeat="medicao in medida.medicoes" type="item-text-wrap">
+            {{medicao.valor}}g - {{medicao.fonte}}
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
