@@ -14,7 +14,7 @@ angular.module('medidaz', ['medidaz.controllers', 'medidaz.services','ngRoute', 
         controller: 'ConsultaCtrl'
       })
       .when('/alimento/:idAlimento', {
-        templateUrl: 'views/alimento.html',
+        templateUrl: 'views/detalhes.html',
         controller: 'AlimentosCtrl'
       })
       .otherwise({ redirectTo: '/' });
