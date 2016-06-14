@@ -25,7 +25,12 @@ angular.module('medidaz.controllers', [])
 
     $scope.consultar = function () {
       AlimentoAPIService.buscaAlimento($scope.consulta.texto).then(function (data) {
-        $scope.alimentos = data.alimentos;
+
+        if (data.alimentos.length > 0) {
+          $scope.alimentos = data.alimentos;
+        } else {
+          Materialize.toast('Desculpe, não existe alimento com o nome pesquisado em nossa base!', 3000, 'rounded');
+        }
       });
     }
   })
@@ -80,12 +85,10 @@ angular.module('medidaz.controllers', [])
         }
 
       });
-      console.log(alimentoTratado);
       return alimentoTratado;
     };
 
     AlimentoAPIService.getAlimento($routeParams.idAlimento).then(function (data) {
-      console.log(data);
       $scope.alimento = _tratarAlimento(data.alimento[0]);
     });
   })
