@@ -37,7 +37,12 @@ angular.module('medidaz.services', [])
         return $http.get(url + "fontes/quantidade").then(function (response) {
           return response.data;
         });
-      }
+      },
+      getFonte: function (id) {        
+        return $http.get(url + "fonte/"+ id).then(function (response) {
+          return response.data;
+        });
+      }   
     };
   })
   .service('MedidaAPIService', function ($http, $q) {

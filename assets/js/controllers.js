@@ -1,12 +1,16 @@
 angular.module('medidaz.controllers', [])
 
-  .controller('HomeCtrl', function ($scope, AlimentoAPIService, FonteAPIService, MedidaAPIService, MedicaoAPIService) {
+  .controller('SobreCtrl', function ($scope, AlimentoAPIService, FonteAPIService, MedidaAPIService, MedicaoAPIService) {
     AlimentoAPIService.quantidadeAlimentos().then(function (data) {
       $scope.quantidade_alimentos = data.quantidade;
     });
 
     FonteAPIService.quantidadeFontes().then(function (data) {
       $scope.quantidade_fontes = data.quantidade;
+    });
+
+    FonteAPIService.listaFontes().then(function (data) {
+      $scope.fontes = data.fonte;
     });
 
     MedidaAPIService.quantidadeMedidas().then(function (data) {
@@ -94,7 +98,10 @@ angular.module('medidaz.controllers', [])
   })
 
   .controller('SugestaoCtrl', function ($scope) {
-    $scope.settings = {
-      enableFriends: true
-    };
+  })
+  
+  .controller('FonteCtrl', function ($scope, $routeParams, FonteAPIService) {
+    FonteAPIService.getFonte($routeParams.idFonte).then(function (data) {
+      $scope.fonte = data.fonte[0];
+    });
   });

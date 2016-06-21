@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col s12 m10">
+    <h5 class="left-align">Descrição:</h5>
+    <div class="card-panel">
+      <span class="flow-text">O app Medidaz oferece consultas a medidas caseiras de alimentos brasileiros, a partir de diversas referências bibliográficas.Utilize o menu Consulta, para pesquisar seus alimentos e medidas caseiras.
+          </span> <br>
+      <span class="flow-text">Se o alimento ou medida caseira que você pesquisou não está disponível, nos envie um pedido de cadastro pelo menu Sugestões.</span>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 m10">
+    <h5 class="left-align ">Informações:</h5>
+    <div class="card-panel">
+      <span class="flow-text">Neste momento, estão cadastrados no banco do Medidaz: </span>
+      <ul>
+        <li><span class="flow-text">{{quantidade_alimentos}} alimentos;</span></li>
+        <li><span class="flow-text">{{quantidade_medicoes}} medidas caseiras;</span></li>
+        <li><span class="flow-text">{{quantidade_fontes}} fontes de referência.</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 m10">
+    <h5 class="left-align ">Fontes de referência cadastradas:</h5>
+    <ul class="collection with-header ">
+      <li data-ng-repeat="fonte in fontes " class="collection-item ">
+        <div>{{fonte.texto_exibicao}}<a href="/fonte/{{fonte.id}} " class="secondary-content "><i class="material-icons ">send</i></a></div>
+      </li>
+    </ul>
+  </div>
+</div>
