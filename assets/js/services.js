@@ -1,6 +1,6 @@
 angular.module('medidaz.services', [])
   .service('AlimentoAPIService', function ($http, $q) {
-    var url = 'https://api.medidaz.com.br/v1/';
+    var url = 'https://medidaz.herokuapp.com/v1/';
     return {
       listaAlimentos: function () {
         return $http.get(url + "alimentos").then(function (response) {
@@ -26,7 +26,7 @@ angular.module('medidaz.services', [])
     };
   })
   .service('FonteAPIService', function ($http, $q) {
-    var url = 'https://api.medidaz.com.br/v1/';
+    var url = 'https://medidaz.herokuapp.com/v1/';
     return {
       listaFontes: function () {
         return $http.get(url + "fontes").then(function (response) {
@@ -46,7 +46,7 @@ angular.module('medidaz.services', [])
     };
   })
   .service('MedidaAPIService', function ($http, $q) {
-    var url = 'https://api.medidaz.com.br/v1/';
+    var url = 'https://medidaz.herokuapp.com/v1/';
     return {
       listaMedidas: function () {
         return $http.get(url + "medidas").then(function (response) {
@@ -61,7 +61,7 @@ angular.module('medidaz.services', [])
     };
   })
   .service('MedicaoAPIService', function ($http, $q) {
-    var url = 'https://api.medidaz.com.br/v1/';
+    var url = 'https://medidaz.herokuapp.com/v1/';
     return {
       listaMedicoes: function () {
         return $http.get(url + "medicoes").then(function (response) {

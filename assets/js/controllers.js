@@ -28,10 +28,12 @@ angular.module('medidaz.controllers', [])
     $scope.consulta = {};
 
     $scope.consultar = function () {
+      $scope.loading = true;
       AlimentoAPIService.buscaAlimento($scope.consulta.texto).then(function (data) {
 
         if (data.alimentos.length > 0) {
           $scope.alimentos = data.alimentos;
+          $scope.loading = false;
         } else {
           Materialize.toast('Desculpe, não existe alimento com o nome pesquisado em nossa base!', 3000, 'rounded');
         }
